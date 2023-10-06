@@ -1,0 +1,14 @@
+extends layouts/frontend
+
+include includes/_mixins
+
+block head
+  //- Inject here JS and styles for this specific page
+
+block content
+  .ui.middle.aligned.center.aligned.grid
+    .sixteen.wide.ten.wide.tablet.seven.wide.computer.column
+      h1 HELLO #{user.firstName} #{user.lastName}
+
+      p tu ne peux rien faire sur cette app,   
+        a.item(href='logout') <strong>déconnecte-toi</strong>

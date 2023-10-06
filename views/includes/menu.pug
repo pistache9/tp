@@ -1,0 +1,28 @@
+//- Top black menu bar
+.ui.inverted.menu
+  .left.menu
+    if user 
+      a.item(href='/dashboard')
+        i.home.icon
+        | Dashboard
+    else 
+      a.item(href='/')
+        i.home.icon
+        | Accueil
+
+
+  .right.menu
+    if !user
+      a.item(href='/subscribe' class='active')
+        i.sign-in.icon
+        | Inscription
+      a.item(href='/login')
+        i.sign-in.icon
+        | Connexion
+    else
+      span.item
+        i.user.icon
+        | #{user.email}
+      a.item(href='/logout')
+        i.sign-out.icon
+        | Déconnexion

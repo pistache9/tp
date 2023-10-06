@@ -1,0 +1,17 @@
+extends layouts/frontend
+
+block content
+  h1 Ici tu peux te connecter
+  p N'oublie aucune info
+  hr
+
+  form(method='post', action='/login')
+    label Ton email :
+    input(type='email', required, name='email', value=email)
+    label Ton mot de passe :
+    input(type='password', required, name='password')
+    div
+      button(type='submit') Envoyer
+  if errors  
+    br
+    +message('error') #{errors[0]}

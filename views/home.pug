@@ -1,0 +1,14 @@
+extends layouts/frontend
+
+include includes/_mixins
+
+block head
+  //- Inject here JS and styles for this specific page
+
+block content
+  .ui.middle.aligned.center.aligned.grid
+    .sixteen.wide.ten.wide.tablet.seven.wide.computer.column
+      h1 COUCOU.
+      p Crée un compte pour avoir un compte :
+      p =>   
+        a.item(href='/subscribe') <strong>créer mon compte pour avoir mon compte</strong>

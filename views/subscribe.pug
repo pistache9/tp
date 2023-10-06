@@ -1,0 +1,34 @@
+extends layouts/frontend
+
+include includes/_mixins
+
+block head
+  //- Inject here JS and styles for this specific page
+
+block content
+  .ui.middle.aligned.center.aligned.grid
+    .sixteen.wide.ten.wide.tablet.seven.wide.computer.column
+      h1 Register
+
+      form.ui.large.form(method="post" action="/subscribe")
+        .ui.segment
+          if savedData && savedData.firstName
+            +field('text', 'firstName', 'First name', savedData.firstName)
+          else 
+            +field('text', 'firstName', 'First name')
+          if savedData && savedData.lastName 
+            +field('text', 'lastName', 'Last name', savedData.lastName)
+          else
+            +field('text', 'lastName', 'Last name')
+          if savedData && savedData.email 
+            +field('email', 'email', 'your.email@address.tld', savedData.email)
+          else 
+            +field('email', 'email', 'your.email@address.tld')
+          +field('password', 'password', 'Password')
+          +field('password', 'password_confirm', 'Confirm password')
+          button(type="submit").ui.fluid.large.teal.submit.button
+            | Login
+  if errors  
+    br
+    each error, index in errors
+      +message('error') #{errors[index]}
